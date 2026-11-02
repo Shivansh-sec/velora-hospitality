@@ -1,0 +1,6 @@
+import {Canvas,useFrame} from '@react-three/fiber'
+import {Points,PointMaterial} from '@react-three/drei'
+import {useMemo,useRef} from 'react'
+import type {Points as PointsType} from 'three'
+function Atmosphere(){const ref=useRef<PointsType>(null);const positions=useMemo(()=>{const values=new Float32Array(180*3);for(let i=0;i<180;i++){values[i*3]=(Math.random()-.5)*13;values[i*3+1]=(Math.random()-.5)*8;values[i*3+2]=(Math.random()-.5)*5}return values},[]);useFrame((state,delta)=>{if(!ref.current)return;ref.current.rotation.y+=delta*.025;ref.current.rotation.x=state.pointer.y*.06});return <Points ref={ref} positions={positions} stride={3}><PointMaterial color="#cbb78d" size={.018} transparent opacity={.7} depthWrite={false}/></Points>}
+export function SceneCanvas(){if(typeof window!=='undefined'&&(window.matchMedia('(prefers-reduced-motion: reduce)').matches||window.innerWidth<700))return null;return <div className="scene-canvas" aria-hidden="true"><Canvas dpr={[1,1.5]} camera={{position:[0,0,7],fov:45}}><Atmosphere/></Canvas></div>}
