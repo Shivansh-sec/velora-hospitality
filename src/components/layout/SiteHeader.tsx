@@ -1,0 +1,4 @@
+import {useState} from 'react'
+import {Menu,X} from 'lucide-react'
+import {site,enquiryHref} from '../../data/site'
+export function SiteHeader(){const[open,setOpen]=useState(false);return <header className="site-header"><a className="brand" href="#" aria-label="VELORA home">{site.brand}</a><nav className={open?'nav-links is-open':'nav-links'} aria-label="Main navigation">{site.navigation.map(item=><a key={item.href} href={item.href} onClick={()=>setOpen(false)}>{item.label}</a>)}</nav><a className="header-cta" href={enquiryHref()}>Enquire to stay <span>↗</span></a><button className="menu-toggle" aria-label={open?'Close menu':'Open menu'} aria-expanded={open} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></header>}
