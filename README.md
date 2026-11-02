@@ -1,20 +1,39 @@
 # VELORA — Hospitality Experience
 
-A cinematic, responsive hospitality concept website designed as a premium sales showcase for resorts and boutique hotels.
+A modular, responsive hospitality showcase built with Vite, React, and TypeScript. Designed as a premium demo website for boutique hotels and resorts.
 
-## Experience
-- Editorial luxury art direction with responsive layouts
-- Cinematic hero and subtle Three.js particle atmosphere
-- GSAP scroll choreography with IntersectionObserver reveal fallbacks
-- Interactive experience imagery and mobile navigation
-- Reduced-motion support and lightweight progressive enhancement
-- Enquiry links are demo placeholders; replace them with the property's real booking/contact workflow
+## Stack
+- Vite + React + TypeScript
+- Three.js via React Three Fiber / Drei for a restrained hero atmosphere
+- Lenis smooth scrolling with reduced-motion safeguards
+- Lucide icons and modular CSS design tokens
 
-## Run locally
-This is a static site. Open `index.html` in a browser or serve the repository with any static web server.
+## Local development
+```bash
+npm install
+npm run dev
+```
 
-## Deploy
-Import this repository into Vercel as a **Other / static** project. No build command is required; set the output directory to `.`.
+## Quality checks
+```bash
+npm run typecheck
+npm run build
+```
 
-## Demo content
-VELORA is a fictional concept brand. Property details, contact email, and imagery are illustrative and must be replaced before presenting it as a real property's website.
+## Project structure
+- `src/app` — page composition
+- `src/components/layout` — navigation, footer, smooth scrolling
+- `src/components/sections` — independently editable page sections
+- `src/components/three` — isolated 3D scene
+- `src/data` — site content and contact configuration
+- `src/hooks` — reusable UI hooks
+- `src/styles` — tokens, base, layout, section, and responsive styles
+
+## Customization
+Edit `src/data/site.ts` to change the brand copy, navigation, experiences, and enquiry destinations. Copy `.env.example` to `.env` for local overrides. Configure `VITE_ENQUIRY_EMAIL` and `VITE_WHATSAPP_NUMBER` in the deployment environment when using real contact details.
+
+## Vercel
+The project uses Vite defaults: install with `npm install`, build with `npm run build`, and publish `dist`.
+
+## Demo notice
+VELORA is a fictional concept brand. Property details, imagery, and contact destinations are illustrative. Replace them with verified property information before using this as a real hotel's website. No live booking engine is included.
