@@ -1,0 +1,2 @@
+import { useEffect } from 'react'
+export function useReveal(){useEffect(()=>{const nodes=document.querySelectorAll<HTMLElement>('[data-reveal]');if(!('IntersectionObserver'in window)){nodes.forEach(n=>n.classList.add('is-visible'));return}const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target)}}),{threshold:.12});nodes.forEach(n=>observer.observe(n));return()=>observer.disconnect()},[])}
