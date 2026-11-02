@@ -1,0 +1,1 @@
+export function Statement(){return <section className="statement" data-reveal><div><p className="eyebrow">The art of being here</p><blockquote>“The most beautiful moments are often the ones that ask nothing of us.”</blockquote><span className="statement-caption">VELORA — A quieter kind of extraordinary</span></div></section>}
